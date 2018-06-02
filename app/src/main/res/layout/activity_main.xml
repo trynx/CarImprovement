@@ -8,7 +8,7 @@
     android:paddingRight="20dp"
     android:paddingTop="30dp">
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -97,6 +97,30 @@
         android:inputType="textMultiLine"
         android:padding="35dp"
         android:textColor="#000000" />
+-->
+
+    <!--Test Hard Coded-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+            <EditText
+                android:id="@+id/car_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLines="1"
+                android:hint="Car number">
+
+                <requestFocus/>
+            </EditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_improvements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/button1"

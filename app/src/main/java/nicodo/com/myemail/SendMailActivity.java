@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +35,7 @@ public class SendMailActivity extends Activity {
 
     private static final int REQUEST_CAPTURE_IMAGE = 100;
     String imageFilePath;
+    String emailBody = "";
 
     private void openCameraIntent() { Intent pictureIntent = new Intent(
             MediaStore.ACTION_IMAGE_CAPTURE);
@@ -65,7 +67,8 @@ public class SendMailActivity extends Activity {
             public void onClick(View v) {
                 Log.i("SendMailActivity", "Send Button Clicked.");
 
-                String fromEmail = ((TextView) findViewById(R.id.editText1))
+                // Original with views
+               /* String fromEmail = ((TextView) findViewById(R.id.editText1))
                         .getText().toString();
                 String fromPassword = ((TextView) findViewById(R.id.editText2))
                         .getText().toString();
@@ -77,7 +80,16 @@ public class SendMailActivity extends Activity {
                 String emailSubject = ((TextView) findViewById(R.id.editText4))
                         .getText().toString();
                 String emailBody = ((TextView) findViewById(R.id.editText5))
-                        .getText().toString();
+                        .getText().toString();*/
+
+               // Test Hard coded
+                String carNumber = ((TextView) findViewById(R.id.car_num)).getText().toString();
+                String fromEmail = "trynx93@gmail.com";
+                String fromPassword = "LuckyboyGMAIL93";
+                List<String> toEmailList = new ArrayList<>();
+                toEmailList.add("trynx93@gmail.com");
+                String emailSubject = "Car Improvement " + carNumber.trim();
+
                 new SendMailTask(SendMailActivity.this).execute(fromEmail,
                         fromPassword, toEmailList, emailSubject, emailBody);
             }
