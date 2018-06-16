@@ -1,144 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:paddingTop="30dp">
-
-   <!-- <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="From Email" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:cursorVisible="true"
-        android:editable="true"
-        android:ems="10"
-        android:enabled="true"
-        android:inputType="textEmailAddress"
-        android:padding="5dp"
-        android:textColor="#000000">
-
-        <requestFocus />
-    </EditText>
+    android:layout_margin="40dp">
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="Password (For from email)" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:padding="5dp"
-        android:textColor="#000000" />
-
+        android:text="• Paper match to vehicle."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
+        />
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="To Email" />
+        android:text="• Inside vehicle isn't damage and no missing items."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:padding="5dp"
-        android:textColor="#000000" />
-
+        />
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="Subject" />
+        android:text="• Vehicle floor and seats are clean."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:ems="10"
-        android:padding="5dp"
-        android:textColor="#000000" />
-
+        />
     <TextView
-        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:text="Body" />
+        android:text="• External of vehicle don't have a hits, scratch or any visual damage."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:padding="35dp"
-        android:textColor="#000000" />
--->
-
-    <!--Test Hard Coded-->
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        
-            <EditText
-                android:id="@+id/car_num"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLines="1"
-                android:hint="Car number">
-
-                <requestFocus/>
-            </EditText>
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_improvements"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/button1"
+        />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Email" />
+        android:text="• External light are completed without any damage."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
 
-    <Button
-        android:id="@+id/img_btn"
+        />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Picture"
-        android:onClick="takePicture"
+        android:text="• Check the whole vehicle is clean."
+        android:textSize="@dimen/LargeText"
+        android:layout_margin="@dimen/textMargin"
+
         />
 
-    <ImageView
-        android:id="@+id/img_view"
+    <CheckBox
+        android:id="@+id/check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="nextActivity"
+        android:text="Agree"
+        android:visibility="invisible"
+        />
 
 </LinearLayout>
