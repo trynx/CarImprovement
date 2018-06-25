@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="LargeText">24sp</dimen>
+    <dimen name="mediumText">16sp</dimen>
     <dimen name="textMargin">10dp</dimen>
 </resources>

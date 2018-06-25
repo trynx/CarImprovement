@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MyEmail</string>
+    <string name="first_desc">• Paper match to vehicle.</string>
+    <string name="second_desc">• Inside vehicle isn\'t damage and no missing items.</string>
+    <string name="third_desc">• Vehicle floor and seats are clean.</string>
+    <string name="fourth_desc">• External of vehicle don\'t have a hits, scratch or any visual damage.</string>
+    <string name="fifth_desc">• External light are completed without any damage.</string>
+    <string name="sixth_desc">• Check the whole vehicle is clean.</string>
+    <string name="agree">Agree</string>
+
+    <!--Camera Test-->
+    <string name="capture">Capture</string>
+    <string name="camera_not_supported">Your Device doesn\'t Support Camera.</string>
+    <string name="capture_image_failed">Failed to capture image.</string>
+    <string name="permission_message">Both permissions are required. Please allow both permission to take picture.</string>
+    <string name="cancel_message">Cancelled by user.</string>
+    <string name="capture_deny_message">Capture image won\'t work without both permissions.</string>
 </resources>

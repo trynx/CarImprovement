@@ -60,7 +60,7 @@ public class GMail {
         Log.i("GMail", "Mail server properties set.");
     }
 
-    public MimeMessage createEmailMessage() throws AddressException,
+    public MimeMessage createEmailMessage() throws
             MessagingException, UnsupportedEncodingException {
 
         mailSession = Session.getDefaultInstance(emailProperties, null);
@@ -74,13 +74,15 @@ public class GMail {
         }
 
         emailMessage.setSubject(emailSubject);
-        emailMessage.setContent(emailBody, "text/html");// for a html email
-        // emailMessage.setText(emailBody);// for a text email
+
+//        emailMessage.setContent(emailBody, "text/html");// for a html email
+         emailMessage.setText(emailBody);// for a text email
+
         Log.i("GMail", "Email Message created.");
         return emailMessage;
     }
 
-    public void sendEmail() throws AddressException, MessagingException {
+    public void sendEmail() throws MessagingException {
 
         Transport transport = mailSession.getTransport("smtp");
         transport.connect(emailHost, fromEmail, fromPassword);
@@ -100,10 +102,13 @@ public class GMail {
 
         messageBodyPart.setFileName("download image");
 
+        BodyPart messageBodyPartText = new MimeBodyPart();
 
+        messageBodyPartText.setContent(emailBody, "text/html");
 
         _multipart.addBodyPart(messageBodyPart);
-
+        _multipart.addBodyPart(messageBodyPartText);
+        emailMessage.setContent(_multipart);
     }
 
 

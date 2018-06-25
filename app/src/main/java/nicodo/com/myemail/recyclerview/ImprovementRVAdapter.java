@@ -1,12 +1,15 @@
-package nicodo.com.myemail.RecycleView;
+package nicodo.com.myemail.recyclerview;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,9 +22,12 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
 
     public List<Improvement> improvements;
 
+    private EditText unFocuseText;
+
     // Constructor
-    public ImprovementRVAdapter(List<Improvement> list){
+    public ImprovementRVAdapter(List<Improvement> list, EditText unFocuseText){
         improvements = list;
+        this.unFocuseText = unFocuseText;
     }
 
 
@@ -59,6 +65,12 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
         holder.cvImprovement.setOnClickListener(new  View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
+                unFocuseText.clearFocus();
+
+                InputMethodManager imm = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
                 impro.setSelected(!impro.isSelected());
                 holder.cvImprovement.setCardBackgroundColor(setBackgroudColor(impro.isSelected()));
             }
