@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <!--  Permission required for CAMERA  -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
 
@@ -16,14 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".SendMailActivity"/>
+        <activity android:name=".SendMailActivity" android:configChanges="orientation|screenSize"/>
         <activity android:name=".MainActivity">
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+             </intent-filter>
         </activity>
+        <activity android:name=".camera_util.CapturePicture"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

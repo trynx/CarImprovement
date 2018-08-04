@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_const);
 
         chkBox = (CheckBox) findViewById(R.id.check_box);
         chkBox.setOnClickListener(new View.OnClickListener(){
@@ -37,7 +37,6 @@ public class MainActivity extends Activity {
 
     public void nextActivity(View view) {
         Intent i = new Intent(this, SendMailActivity.class);
-        finish();
         startActivity(i);
     }
 }

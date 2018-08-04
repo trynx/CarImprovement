@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <!--Test Hard Coded-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_car_chassis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/car_chassis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            android:gravity="right"
+            android:hint="@string/hint_car_chassis"
+            android:maxLines="1"
+            android:textDirection="anyRtl">
+
+            <requestFocus
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </EditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_car_chassis"
+        app:layout_constraintStart_toStartOf="@+id/input_car_chassis"
+        app:layout_constraintTop_toBottomOf="@+id/input_car_chassis">
+
+        <EditText
+            android:id="@+id/car_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            android:gravity="right"
+            android:hint="@string/hint_car_number"
+            android:maxLines="1"
+            android:textDirection="anyRtl" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_improvements"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        android:onClick="sendMail"
+        android:text="@string/btn_send_email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rv_improvements" />
+
+    <Button
+        android:id="@+id/img_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:onClick="takePicture"
+        android:text="@string/btn_shoot_picture"
+        app:layout_constraintBottom_toBottomOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="@+id/rv_improvements"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button1" />
+
+    <ProgressBar
+        android:id="@+id/spinner_progress"
+        style="@style/Widget.AppCompat.ProgressBar"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:theme="@style/CircularProgress"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_improvements"
+        app:layout_constraintEnd_toEndOf="@+id/rv_improvements"
+        app:layout_constraintStart_toStartOf="@+id/rv_improvements"
+        app:layout_constraintTop_toTopOf="@+id/rv_improvements"/>
+
+
+    <!-- <ImageView
+         android:id="@+id/img_view"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:layout_constraintBottom_toBottomOf="@+id/img_btn"
+         app:layout_constraintEnd_toStartOf="@+id/img_btn"
+         app:layout_constraintStart_toStartOf="@+id/img_btn"
+         app:layout_constraintTop_toBottomOf="@+id/img_btn" />-->
+
+
+</android.support.constraint.ConstraintLayout>

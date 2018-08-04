@@ -3,6 +3,7 @@ package nicodo.com.myemail;
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -23,29 +24,29 @@ import javax.mail.internet.MimeMultipart;
 
 public class GMail {
 
-    final String emailPort = "587";// gmail's smtp port
-    final String smtpAuth = "true";
-    final String starttls = "true";
-    final String emailHost = "smtp.gmail.com";
+    private final String emailPort = "587";// gmail's smtp port
+    private final String smtpAuth = "true";
+    private final String starttls = "true";
+    private final String emailHost = "smtp.gmail.com";
 
     private Multipart _multipart = new MimeMultipart();
 
 
-    String fromEmail;
-    String fromPassword;
-    List<String> toEmailList;
-    String emailSubject;
-    String emailBody;
+    private String fromEmail;
+    private String fromPassword;
+    private List<String> toEmailList;
+    private String emailSubject;
+    private String emailBody;
 
-    Properties emailProperties;
-    Session mailSession;
-    MimeMessage emailMessage;
+    private Properties emailProperties;
+    private Session mailSession;
+    private MimeMessage emailMessage;
 
     public GMail() {
 
     }
 
-    public GMail(String fromEmail, String fromPassword,
+    GMail(String fromEmail, String fromPassword,
                  List<String> toEmailList, String emailSubject, String emailBody) {
         this.fromEmail = fromEmail;
         this.fromPassword = fromPassword;
@@ -60,7 +61,7 @@ public class GMail {
         Log.i("GMail", "Mail server properties set.");
     }
 
-    public MimeMessage createEmailMessage() throws AddressException,
+    public MimeMessage createEmailMessage() throws
             MessagingException, UnsupportedEncodingException {
 
         mailSession = Session.getDefaultInstance(emailProperties, null);
@@ -74,13 +75,16 @@ public class GMail {
         }
 
         emailMessage.setSubject(emailSubject);
-        emailMessage.setContent(emailBody, "text/html");// for a html email
-        // emailMessage.setText(emailBody);// for a text email
+
+//        emailMessage.setContent(emailBody, "text/html");// for a html email
+         emailMessage.setText(emailBody);// for a text email
+
         Log.i("GMail", "Email Message created.");
         return emailMessage;
     }
 
-    public void sendEmail() throws AddressException, MessagingException {
+    public void sendEmail() throws MessagingException {
+
 
         Transport transport = mailSession.getTransport("smtp");
         transport.connect(emailHost, fromEmail, fromPassword);
@@ -90,7 +94,34 @@ public class GMail {
         Log.i("GMail", "Email sent successfully.");
     }
 
-    public void addAttachment(String filename) throws Exception {
+    public void addAttachment(List<String> filename) throws Exception {
+
+
+
+  /*      DataSource source = new FileDataSource(filename);
+
+        messageBodyPart.setDataHandler(new DataHandler(source));
+
+        String photoTitle = Util.getCurrentTime() + ".jpg";
+        messageBodyPart.setFileName(photoTitle);
+*/
+        // Email Picture(s)
+        // Iterate through each picture and add to the mail attachment
+        for(String file: filename){
+            BodyPart messageBodyPart = createPictureAttachment(file);
+            _multipart.addBodyPart(messageBodyPart);
+        }
+
+        // Email Body Text
+        BodyPart messageBodyPartText = new MimeBodyPart();
+        //        messageBodyPartText.setContent(emailBody, "text/html");
+        messageBodyPartText.setText(emailBody);// for a text email
+        _multipart.addBodyPart(messageBodyPartText);
+
+        emailMessage.setContent(_multipart);
+    }
+
+    private BodyPart createPictureAttachment(String filename) throws Exception{
 
         BodyPart messageBodyPart = new MimeBodyPart();
 
@@ -98,11 +129,10 @@ public class GMail {
 
         messageBodyPart.setDataHandler(new DataHandler(source));
 
-        messageBodyPart.setFileName("download image");
+        String photoTitle = Util.getCurrentTime() + ".jpg";
+        messageBodyPart.setFileName(photoTitle);
 
-
-
-        _multipart.addBodyPart(messageBodyPart);
+        return messageBodyPart;
 
     }
 
