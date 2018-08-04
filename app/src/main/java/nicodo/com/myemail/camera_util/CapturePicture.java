@@ -1,4 +1,4 @@
-package nicodo.com.myemail.camera_test;
+package nicodo.com.myemail.camera_util;
 
 
 import android.app.Activity;
@@ -203,7 +203,7 @@ public class CapturePicture extends AppCompatActivity {
 
                         //Check if device SDK is greater than 22 then we get the actual image path via below method
                         if (Build.VERSION.SDK_INT > 22)
-//                            getImageUrl = ImagePath_MarshMallow.getPath(CapturePicture.this, fileUri);
+//                            getImageUrl = ImagePath_MarshMallow.getPath(CapturePicture.this, fileUri); // TODO - Test 100% with all phones
                             getImageUrl = getFilePathFromURI(viewContext, fileUri);
                         else
                             //else we will get path directly
@@ -223,19 +223,6 @@ public class CapturePicture extends AppCompatActivity {
         }
     }
 
-
-    /*  Show Captured over ImageView  */
-    private void showCapturedImage() {
-        if (!getImageUrl.equals("") && getImageUrl != null){
-
-//            imageView.setImageBitmap(CameraUtils.convertImagePathToBitmap(getImageUrl, false));
-
-        }
-        else{
-            Toast.makeText(viewContext, R.string.capture_image_failed, Toast.LENGTH_SHORT).show();
-
-        }
-    }
 
     /**
      * Here we store the file url as it will be null after returning from camera
@@ -270,9 +257,7 @@ public class CapturePicture extends AppCompatActivity {
         }
 
         // Return the file target for the photo based on filename
-        File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
-
-        return file;
+        return  new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
     public static String getFilePathFromURI(Context context, Uri contentUri) {

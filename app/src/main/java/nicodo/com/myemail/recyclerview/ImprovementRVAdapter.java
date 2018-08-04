@@ -16,16 +16,17 @@ import java.util.List;
 
 import nicodo.com.myemail.Improvement;
 import nicodo.com.myemail.R;
+import nicodo.com.myemail.googlesheet.PostData;
 
 public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAdapter.ImprovementViewHolder> {
 
 
-    public List<Improvement> improvements;
+    private List<Improvement> improvements;
 
-    private EditText unFocuseText;
+    private EditText[] unFocuseText;
 
     // Constructor
-    public ImprovementRVAdapter(List<Improvement> list, EditText unFocuseText){
+    public ImprovementRVAdapter(List<Improvement> list, EditText[] unFocuseText){
         improvements = list;
         this.unFocuseText = unFocuseText;
     }
@@ -38,7 +39,7 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
 
 
 
-        public ImprovementViewHolder(View itemView) {
+        ImprovementViewHolder(View itemView) {
             super(itemView);
 
             cvImprovement = (CardView) itemView.findViewById(R.id.cv_improvement);
@@ -66,7 +67,10 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
             @Override
             public void onClick(View view) {
 
-                unFocuseText.clearFocus();
+                for(EditText et: unFocuseText) {
+
+                    et.clearFocus();
+                }
 
                 InputMethodManager imm = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);

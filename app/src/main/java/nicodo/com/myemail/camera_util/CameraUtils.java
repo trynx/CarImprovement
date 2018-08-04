@@ -1,4 +1,4 @@
-package nicodo.com.myemail.camera_test;
+package nicodo.com.myemail.camera_util;
 
 
 import android.content.Context;

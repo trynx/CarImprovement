@@ -1,12 +1,21 @@
 <resources>
     <string name="app_name">MyEmail</string>
-    <string name="first_desc">• Paper match to vehicle.</string>
-    <string name="second_desc">• Inside vehicle isn\'t damage and no missing items.</string>
-    <string name="third_desc">• Vehicle floor and seats are clean.</string>
-    <string name="fourth_desc">• External of vehicle don\'t have a hits, scratch or any visual damage.</string>
-    <string name="fifth_desc">• External light are completed without any damage.</string>
-    <string name="sixth_desc">• Check the whole vehicle is clean.</string>
-    <string name="agree">Agree</string>
+    <!--Main Activity-->
+    <string name="first_desc">• תאימות ניירת רכב(קשה + צהוב)</string>
+    <string name="second_desc">• מערכות מקוריות של הרכב (4 מאותתים / מפשרי אדים / כיוון מראות / לחצני הגה / מזגן)</string>
+    <string name="third_desc">• פלסטיקה וגומיות מעבר מותקנים כנדרש</string>
+    <string name="fourth_desc">• אור פנים / חנייה / תא כפפות / קונסול תחתון / לוח שעונים / אור גבוה/נמוך / איתותים / מנורות אזהרה / תאורת גג</string>
+    <string name="fifth_desc">• ניקיון ריפודים + תקרה</string>
+    <string name="sixth_desc">• בדיקה סביב הרכב לפגיעות חיצוניות / נזקים - בדגש רב לפגושים ודלתות</string>
+    <string name="seventh_desc">• תאורות חיצוניות</string>
+    <string name="eighth_desc">• וודא ניקיון הרכב</string>
+    <string name="agree">מסכים</string>
+
+    <!--Send mail Activity-->
+    <string name="hint_car_chassis">מספר שלדה</string>
+    <string name="hint_car_number">מספר רישוי</string>
+    <string name="btn_send_email">שלח</string>
+    <string name="btn_shoot_picture">צלם</string>
 
     <!--Camera Test-->
     <string name="capture">Capture</string>
@@ -15,4 +24,10 @@
     <string name="permission_message">Both permissions are required. Please allow both permission to take picture.</string>
     <string name="cancel_message">Cancelled by user.</string>
     <string name="capture_deny_message">Capture image won\'t work without both permissions.</string>
+
+    <!--E-mail details-->
+    <string name="admin_email">car.improvement.test@gmail.com</string>
+    <string name="admin_password">123car123test</string>
+    <string name="recipient_email">car.improvement.test@gmail.com</string>
 </resources>
+

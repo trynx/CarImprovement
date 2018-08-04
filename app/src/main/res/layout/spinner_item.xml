@@ -7,4 +7,6 @@
     android:textSize="20sp"
     android:textColor="#301414"
     android:padding="5dip"
+    android:textDirection="anyRtl"
+    android:gravity="right"
     />

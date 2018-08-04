@@ -37,7 +37,6 @@ public class MainActivity extends Activity {
 
     public void nextActivity(View view) {
         Intent i = new Intent(this, SendMailActivity.class);
-        finish();
         startActivity(i);
     }
 }

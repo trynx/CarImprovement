@@ -1,4 +1,4 @@
-package nicodo.com.myemail.camera_test;
+package nicodo.com.myemail.camera_util;
 
 import android.util.Log;
 
@@ -20,7 +20,7 @@ public class IOUtils {
 
         BufferedInputStream in = new BufferedInputStream(input, BUFFER_SIZE);
         BufferedOutputStream out = new BufferedOutputStream(output, BUFFER_SIZE);
-        int count = 0, n = 0;
+        int count = 0, n;
         try {
             while ((n = in.read(buffer, 0, BUFFER_SIZE)) != -1 ) {
                 out.write(buffer, 0, n);

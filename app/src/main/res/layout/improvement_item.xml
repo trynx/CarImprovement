@@ -9,14 +9,14 @@
     card_view:cardUseCompatPadding="true"
     android:background="#FFF"
     android:clickable="true"
-    >
+    android:focusable="true">
 
-    <!--    android:focusable="true"-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-
+        android:textDirection="anyRtl"
+        android:gravity="right"
         >
 
         <TextView

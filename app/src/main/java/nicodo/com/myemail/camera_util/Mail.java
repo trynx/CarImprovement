@@ -1,4 +1,4 @@
-package nicodo.com.myemail.camera_test;
+package nicodo.com.myemail.camera_util;
 
 import java.io.File;
 import java.util.Date;
@@ -88,7 +88,7 @@ public class Mail extends javax.mail.Authenticator {
         this.multipart = multipart;
     }
 
-    public Mail() {
+    private Mail() {
         host = "smtp.googlemail.com"; // default smtp server
         port = "465"; // default smtp port
         sport = "465"; // default socketfactory port
