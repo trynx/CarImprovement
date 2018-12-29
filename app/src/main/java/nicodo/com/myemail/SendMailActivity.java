@@ -44,6 +44,7 @@ import java.util.Locale;
 import nicodo.com.myemail.camera_util.IOUtils;
 import nicodo.com.myemail.googlesheet.GetDataTask;
 import nicodo.com.myemail.googlesheet.PostData;
+import nicodo.com.myemail.models.Improvement;
 import nicodo.com.myemail.recyclerview.ImprovementRVAdapter;
 
 import static android.Manifest.permission.CAMERA;
@@ -445,10 +446,10 @@ public class SendMailActivity extends Activity implements AdapterView.OnItemSele
         } else {
             String sheet = Util.getHebrewMonth(new SimpleDateFormat("MM", Locale.getDefault()).format(new Date())); // Sheet depend on the month
             // Add data to main table of action
-            new PostData(SendMailActivity.this).execute(Util.SHEET_ID, sheet, PostData.OLD, carNumber, carChassis,
+            new PostData(SendMailActivity.this).execute(Util.getSheetId(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date())), sheet, PostData.OLD, carNumber, carChassis,
                     selectedModel, currentTime, calcTotalPrice(), getSelectedImprovements());
             // Add/Update data to the total sum of improvements
-            new PostData(SendMailActivity.this).execute(Util.SHEET_ID_COSTS, sheet, PostData.INSERT, calcTotalPrice(), getSelectedImprovementsAndPrice());
+            new PostData(SendMailActivity.this).execute(Util.getSheetIdCosts(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date())), sheet, PostData.INSERT, calcTotalPrice(), getSelectedImprovementsAndPrice());
 
             new SendMailTask(SendMailActivity.this).execute(fromEmail,
                     fromPassword, toEmailList, emailSubject, emailBody, getImageUrlList);

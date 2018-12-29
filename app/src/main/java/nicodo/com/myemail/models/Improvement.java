@@ -1,4 +1,4 @@
-package nicodo.com.myemail;
+package nicodo.com.myemail.models;
 
 public class Improvement {
 

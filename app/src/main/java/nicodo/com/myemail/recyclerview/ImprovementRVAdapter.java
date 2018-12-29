@@ -14,9 +14,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import nicodo.com.myemail.Improvement;
+import nicodo.com.myemail.models.Improvement;
 import nicodo.com.myemail.R;
-import nicodo.com.myemail.googlesheet.PostData;
 
 public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAdapter.ImprovementViewHolder> {
 
@@ -59,9 +58,11 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
     public void onBindViewHolder(final ImprovementViewHolder holder, int position) {
         final Improvement impro = improvements.get(position);
         holder.tvImprovement.setText(impro.getName());
+        holder.tvImprovement.setTextColor(setTextColor(impro.isSelected()));
         // This is the background color of an item before any other action was take,
         // the first item will be colored -> color = selected
-        holder.cvImprovement.setCardBackgroundColor(setBackgroudColor(impro.isSelected()));
+        holder.cvImprovement.setCardBackgroundColor(setBackgroundColor(impro.isSelected()));
+
 
         holder.cvImprovement.setOnClickListener(new  View.OnClickListener(){
             @Override
@@ -76,7 +77,9 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
                 impro.setSelected(!impro.isSelected());
-                holder.cvImprovement.setCardBackgroundColor(setBackgroudColor(impro.isSelected()));
+                holder.cvImprovement.setCardBackgroundColor(setBackgroundColor(impro.isSelected()));
+                holder.tvImprovement.setTextColor(setTextColor(impro.isSelected()));
+
             }
         });
 
@@ -89,10 +92,17 @@ public class ImprovementRVAdapter  extends RecyclerView.Adapter<ImprovementRVAda
         return improvements == null ? 0 :  improvements.size();
     }
 
-    private int setBackgroudColor(boolean isSelected){
+    private int setBackgroundColor(boolean isSelected){
         // Search in each position
-        return isSelected ? Color.GREEN : Color.WHITE;
+        return isSelected ? Color.argb(255, 32, 214, 132) : Color.WHITE;
     }
+
+    private int setTextColor(boolean isSelected){
+        // Search in each position
+        return isSelected ? Color.WHITE : Color.BLACK;
+    }
+
+
 
 
 }

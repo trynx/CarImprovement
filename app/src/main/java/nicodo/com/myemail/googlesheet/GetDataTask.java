@@ -9,15 +9,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 
-import com.facebook.shimmer.ShimmerFrameLayout;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
 
-import nicodo.com.myemail.Improvement;
+import nicodo.com.myemail.models.Improvement;
 import nicodo.com.myemail.googlesheet.parser.JSONParser;
 import nicodo.com.myemail.googlesheet.util.Keys;
 import nicodo.com.myemail.recyclerview.ImprovementRVAdapter;

@@ -36,6 +36,10 @@ public class MainActivity extends Activity {
 
 
     public void nextActivity(View view) {
+        // Clear checkbox for the next round
+        chkBox.setChecked(false);
+
+        // Go to the next activity
         Intent i = new Intent(this, SendMailActivity.class);
         startActivity(i);
     }
