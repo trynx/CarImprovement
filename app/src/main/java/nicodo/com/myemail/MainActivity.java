@@ -29,7 +29,6 @@ public class MainActivity extends Activity {
             }
         });
         nextAct = (Button) findViewById(R.id.next_btn);
-
     }
 
 
@@ -42,5 +41,7 @@ public class MainActivity extends Activity {
         // Go to the next activity
         Intent i = new Intent(this, SendMailActivity.class);
         startActivity(i);
+
+        nextAct.setVisibility(View.INVISIBLE);
     }
 }

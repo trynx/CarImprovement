@@ -16,9 +16,9 @@ import java.io.IOException;
 
 
 public class JSONParser {
-    private static final String MAIN_URL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1S7qsFGj_BGV2BR4tH1FWudsCCW2S-uOCAQSyV9h_cu0"/*&sheet=June"*/; // TODO - Change the id here
+    private static final String MAIN_URL = "https://script.google.com/macros/s/AKfycbxGVl8jHCQQ1xLPBRgPg9vBzrZk2egmgRPbsbraweq2OQoIDjEJts4w3ihqC6kIo4tgPg/exec?id=1S7qsFGj_BGV2BR4tH1FWudsCCW2S-uOCAQSyV9h_cu0&action=readAll"/*&sheet=June"*/; // TODO - Change the id here
 
-    public static final String TAG = "TAG";
+    public static final String TAG = "JSONParser";
 
     private static final String KEY_USER_ID = "user_id";
 
