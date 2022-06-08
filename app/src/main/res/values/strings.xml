@@ -26,8 +26,12 @@
     <string name="capture_deny_message">Capture image won\'t work without both permissions.</string>
 
     <!--E-mail details-->
+<!--    <string name="admin_email">car.improvement.test@gmail.com</string>-->
+<!--    <string name="admin_password">top777car</string>-->
+<!--    <string name="recipient_email">car.improvement.test@gmail.com</string>  -->
+
     <string name="admin_email">car.improvement.test@gmail.com</string>
-    <string name="admin_password">top777car</string>
+    <string name="admin_password">curnjrdqclkmjemb</string>
     <string name="recipient_email">car.improvement.test@gmail.com</string>
 </resources>
 

@@ -3,7 +3,6 @@ package nicodo.com.myemail;
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -14,9 +13,9 @@ import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -58,6 +57,11 @@ public class GMail {
         emailProperties.put("mail.smtp.port", emailPort);
         emailProperties.put("mail.smtp.auth", smtpAuth);
         emailProperties.put("mail.smtp.starttls.enable", starttls);
+
+       emailProperties.put("mail.smtp.host", "smtp.gmail.com");
+       emailProperties.put("mail.smtp.socketFactory.port", "465");
+       emailProperties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        emailProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         Log.i("GMail", "Mail server properties set.");
     }
 
